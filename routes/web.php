@@ -18,3 +18,5 @@ use App\Http\Controllers\Mhs_C;
 // });
 
 Route::resource('/mahasiswa', Mhs_C::class); 
+//Route search
+Route::get('/search', [Mhs_C::class, 'search'])->name('search');

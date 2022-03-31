@@ -19,6 +19,10 @@ class Mhs extends Model
     protected $fillable = [
     'nim',
     'nama',
+    'email',
+    'tanggal_lahir',
+    'jenis_kelamin',
+    'alamat',
     'kelas',
     'jurusan',
     ];
