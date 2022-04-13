@@ -12,7 +12,7 @@
     </div>
 </div>
 
-@if ($message = Session::get('success'))
+<!-- @if ($message = Session::get('success'))
 <div class="alert alert-success">
     <p>{{ $message }}</p>
 </div>
@@ -21,7 +21,7 @@
 <div class="alert alert-error">
     <p>{{ $message }}</p>
 </div>
-@endif
+@endif -->
 
 <!-- Start kode untuk form pencarian -->
 <form class="form" method="get" action="{{ route('search') }}">
@@ -38,14 +38,10 @@
 </div>
 @endif
 
-<table class="table table-bordered table-responsive">
+<table class="table table-bordered">
     <tr class="text-center">
         <th>Nim</th>
         <th>Nama</th>
-        <th>Email</th>
-        <th>Tanggal Lahir</th>
-        <th>Jenis Kelamin</th>
-        <th>Alamat</th>
         <th>Kelas</th>
         <th>Jurusan</th>
         <th width="200px">Action</th>
@@ -55,11 +51,7 @@
 
         <td>{{ $mhs->nim }}</td>
         <td>{{ $mhs->nama }}</td>
-        <td>{{ $mhs->email }}</td>
-        <td>{{ $mhs->tanggal_lahir }}</td>
-        <td>{{ $mhs->jenis_kelamin }}</td>
-        <td>{{ $mhs->alamat }}</td>
-        <td>{{ $mhs->kelas }}</td>
+        <td>{{ $mhs->kelas->nm_kelas }}</td>
         <td>{{ $mhs->jurusan }}</td>
         <td>
             <form action="{{ route('mahasiswa.destroy',['mahasiswa'=>$mhs->nim]) }}" method="POST">

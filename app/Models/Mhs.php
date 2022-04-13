@@ -19,11 +19,11 @@ class Mhs extends Model
     protected $fillable = [
     'nim',
     'nama',
-    'email',
-    'tanggal_lahir',
-    'jenis_kelamin',
-    'alamat',
-    'kelas',
+    'kelas_id',
     'jurusan',
     ];
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class);
+    }
 }
