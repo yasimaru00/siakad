@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mhs;
 use App\Models\Kelas;
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,9 @@ class Mhs_C extends Controller
     {
         //yang semula Mahasiswa::all , diubah menjadi with() yang menyatakan relasi
         $mahasiswa = Mhs::with('kelas')->get();
-        $mahasiswa = Mhs::orderBy('id_mhs', 'asc')->paginate(2);
+        // $mahasiswa = Mhs::orderBy('id_mahasiswa', 'asc')->paginate(2);
+        $mahasiswa = Mhs::orderBy('nim', 'asc')->paginate(2);
+        // dd($mahasiswa);
         return view('mahasiswa.index', ['mahasiswa' => $mahasiswa]);
     }
     public function create()
@@ -85,7 +88,7 @@ class Mhs_C extends Controller
         $request->validate([
             'nim' => 'required',
             'nama' => 'required',
-            'kelas' => 'required',
+            'kelas_id' => 'required',
             'jurusan' => 'required',
         ]);
 
@@ -96,7 +99,7 @@ class Mhs_C extends Controller
         $mahasiswa->save();
 
         $kelas = new Kelas;
-        $kelas->id = $request->get('kelas');
+        $kelas->id = $request->get('kelas_id');
         //fungsi eloquent untuk mengupdate data dengan relasi belongsTo
 
         $mahasiswa->kelas()->associate($kelas);
@@ -112,5 +115,16 @@ class Mhs_C extends Controller
         Mhs::where('nim', $nim)->delete();
         return redirect()->route('mahasiswa.index')
             ->with('success', 'Mahasiswa Berhasil Dihapus');
+    }
+
+    public function nilai($nim){
+        // $mahasiswa = Mhs::where('nim', $nim)->first();
+        // $mahasiswa = Mhs::with('matakuliah')->where('nim', $nim)->first();
+        $mahasiswa = Mhs::with('kelas', 'matakuliah')->where('nim', $nim)->first();
+        // $mahasiswa = Mhs::find($nim);
+        // $mahasiswa = MataKuliah::find($nim);
+        // dd($mahasiswa);
+        // return view('mahasiswa.nilai',compact('mahasiswa'));
+        return view('mahasiswa.nilai',['mahasiswa'=>$mahasiswa]);
     }
 }

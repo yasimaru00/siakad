@@ -44,10 +44,10 @@
         <th>Nama</th>
         <th>Kelas</th>
         <th>Jurusan</th>
-        <th width="200px">Action</th>
+        <th>Action</th>
     </tr>
     @foreach ($mahasiswa as $mhs)
-    <tr>
+    <tr class="text-center">
 
         <td>{{ $mhs->nim }}</td>
         <td>{{ $mhs->nama }}</td>
@@ -61,6 +61,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" onclick="return confirm('Apakah anda ingin mengahapus data ini, jika iya tekan OK ?')" class="btn btn-danger btn-sm">Delete</button>
+                <a class="btn btn-warning btn-sm"href="{{route('nilai',$mhs->nim)}}">Nilai</a>
             </form>
         </td>
     </tr>
