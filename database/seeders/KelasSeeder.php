@@ -15,15 +15,15 @@ class KelasSeeder extends Seeder
     public function run()
     {
         $kelas = [
-            ['nm_kelas' => 'TI 2A'],
-            ['nm_kelas' => 'TI 2B'],
-            ['nm_kelas' => 'TI 2C'],
-            ['nm_kelas' => 'TI 2D'],
-            ['nm_kelas' => 'TI 2E'],
-            ['nm_kelas' => 'TI 2F'],
-            ['nm_kelas' => 'TI 2G'],
-            ['nm_kelas' => 'TI 2H'],
-            ['nm_kelas' => 'TI 2I'],
+            ['nama_kelas' => 'TI 2A',],
+            ['nama_kelas' => 'TI 2B',],
+            ['nama_kelas' => 'TI 2C',],
+            ['nama_kelas' => 'TI 2D',],
+            ['nama_kelas' => 'TI 2E',],
+            ['nama_kelas' => 'TI 2F',],
+            ['nama_kelas' => 'TI 2G',],
+            ['nama_kelas' => 'TI 2H',],
+            ['nama_kelas' => 'TI 2I',],
         ];
 
         DB::table('kelas')->insert($kelas);

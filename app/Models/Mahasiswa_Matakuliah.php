@@ -8,14 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Mahasiswa_Matakuliah extends Model
 {
     use HasFactory;
-    protected $table = 'mahasiswa_matakuliah';
+    protected $table = 'mahasiswa_matakuliah'; //mendefinisikan bahwa model ini terkait dengan tabel mahasiswa_matakuliah
+    protected $primaryKey = 'id'; // Memanggil isi DB Dengan primarykey
     protected $fillable = [
-        'mahasiswa_nim',
-        'matakuliah_id',
-        'nilai'
+        'id_mahasiswa',
+        'id_matakuliah',
+        'nilai_angka',
+        'nilai_huruf',
     ];
     
-    public function matakuliah(){
-        return $this->belongsToMany(MataKuliah::class, 'mahasiswa_matakuliah', 'mahasiswa_nim', 'matakuliah_id')->withPivot('nilai');
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class);
+    }
+
+    public function matakuliah()
+    {
+        return $this->belongsTo(MataKuliah::class);
     }
 }

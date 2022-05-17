@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             KelasSeeder::class,
-            UpdateMahasiswaSeeder::class,
-            MataKuliahSeeder::class,
             MahasiswaSeeder::class,
-            MahasiswaMatakuliah::class,
+            MataKuliahSeeder::class,
+            Mahasiswa_Matakuliah::class,
+            UpdateMahasiswaSeeder::class,
            
         ]);
     }

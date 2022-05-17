@@ -17,9 +17,8 @@ class MataKuliah extends Model
         'semester'
     ];
 
-    public function mahasiswa()
+    public function mahasiswa_matakuliah()
     {
-        // return $this->belongsToMany(Mhs::class, 'mahasiswa_matakuliah', 'matakuliah_id', 'mahasiswa_nim');
-        return $this->belongsToMany(Mhs::class, 'mahasiswa_matakuliah', 'mahasiswa_id', 'matakuliah_id');
+        return $this->hasMany(Mahasiswa_MataKuliah::class); //mendefinisikan bahwa model ini terkait dengan tabel dosen
     }
 }

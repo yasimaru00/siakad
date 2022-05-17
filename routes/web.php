@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Mhs_C;
+use App\Http\Controllers\MahasiswaController;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +19,11 @@ use App\Http\Controllers\Mhs_C;
 //     return view('welcome');
 // });
 
-Route::resource('/mahasiswa', Mhs_C::class); 
-//Route search
-Route::get('/search', [Mhs_C::class, 'search'])->name('search');
+Route::resource('mahasiswa', MahasiswaController::class);
 
-//praktikum 9 latihan
-Route::get('/nilai/{nim}',[Mhs_C::class,'nilai'])->name('nilai');
+// konfirmasi
+Route::delete('/{nim}', [MahasiswaController::class, 'delete'])->name('mahasiswa.delete');
+Route::get('/nialiraport/{id}', [MahasiswaController::class, 'khs'])->name('mahasiswa.nilairaport');
+
+// print cetak pdf
+Route::get('/nilairaport/{nim}/print_cetak', [MahasiswaController::class, 'print_cetak'])->name('mahasiswa.print_cetak');

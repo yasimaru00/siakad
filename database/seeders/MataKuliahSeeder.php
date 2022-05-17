@@ -17,39 +17,33 @@ class MataKuliahSeeder extends Seeder
     {
         $matkul = [
             [
-                'nama_matkul' => 'Pemograman Berbasis Objek',
-                'sks' => '3',
-                'jam' => '6',
-                'semester' => '4',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'nama_matkul' => 'Pemrograman Berbasis Objek',
+                'sks' => 3,
+                'jam' => 6,
+                'semester' => 4,
             ],
             [
-                'nama_matkul' => 'Pemograman Web Lanjut',
-                'sks' => '3',
-                'jam' => '6',
-                'semester' => '4',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'nama_matkul' => 'Pemrograman Web Lanjut',
+                'sks' => 3,
+                'jam' => 6,
+                'semester' => 4,
             ],
             [
                 'nama_matkul' => 'Basis Data Lanjut',
-                'sks' => '3',
-                'jam' => '4',
-                'semester' => '4',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'sks' => 3,
+                'jam' => 4,
+                'semester' => 4,
             ],
             [
                 'nama_matkul' => 'Praktikum Basis Data Lanjut',
-                'sks' => '3',
-                'jam' => '6',
-                'semester' => '4',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'sks' => 3,
+                'jam' => 6,
+                'semester' => 4,
             ],
-
         ];
         DB::table('matakuliah')->insert($matkul);
     }
 }
+
+                // 'created_at' => Carbon::now(),
+                // 'updated_at' => Carbon::now(),
